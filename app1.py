@@ -12,6 +12,8 @@ def translate(w): #creating our translate function thta takes word as a local pa
         return data[w] #return our data with whatever word was inputted
     elif w.title() in data:
         return data[w.title()]
+    elif w.upper() in data:
+        return data[w.upper()]    
     elif len(get_close_matches(w, data.keys())) > 0:
         yn =  input("Did you mean %s instead? Enter Y if Yes or N if no " % get_close_matches(w, data.keys())[0])
         if yn == "Y":
