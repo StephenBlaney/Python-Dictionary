@@ -10,7 +10,8 @@ def translate(w): #creating our translate function thta takes word as a local pa
     w = w.lower() #converting all letters inputted by user to lowercase
     if w in data:
         return data[w] #return our data with whatever word was inputted
-
+    elif w.title() in data:
+        return data[w.title()]
     elif len(get_close_matches(w, data.keys())) > 0:
         yn =  input("Did you mean %s instead? Enter Y if Yes or N if no " % get_close_matches(w, data.keys())[0])
         if yn == "Y":
@@ -28,6 +29,6 @@ output = translate(word)  #printing our translate fuction to the Command line#
 
 if type(output) == list:
     for item in output:
-    print(item)
+        print(item)
 else:
     print(output)
